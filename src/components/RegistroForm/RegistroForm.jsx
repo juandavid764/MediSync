@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createPaciente } from "../supabase/crudFunctions/pacienteTable.js";
+import { createPaciente } from "../../supabase/crudFunctions/pacienteTable.js";
 
 export const RegistroForm = ({ cambiarModo }) => {
   const [formData, setFormData] = useState({

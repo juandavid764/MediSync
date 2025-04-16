@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { validarUsuario } from "../supabase/nativeQuerys.js";
+import { validarUsuario } from "../../supabase/nativeQuerys.js";
 
-import { useUser } from "../context/UserContext.jsx";
+import { useUser } from "../../context/UserContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const LoginForm = ({ cambiarModo }) => {
