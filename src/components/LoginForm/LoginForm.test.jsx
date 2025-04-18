@@ -42,7 +42,7 @@ describe('LoginForm', () => {
     fireEvent.submit(screen.getByRole('button', { name: 'Ingresar' }));
     
     // Los inputs required mostrarán el mensaje nativo del navegador
-    //! No se verifica mensaje específico ya que el formulario tiene required
+    //! No se verifica mensaje específico ya que el formulario tiene require
     expect(validarUsuario).not.toHaveBeenCalled();
   });
 
