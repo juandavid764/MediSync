@@ -77,5 +77,11 @@ export default defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
+  webServer: {
+    command: 'npm run dev',
+    url: 'http://localhost:5174',
+    reuseExistingServer: !process.env.CI,
+    timeout: 30000, // espera hasta 30 segundos a que inicie
+  },
 });
 
