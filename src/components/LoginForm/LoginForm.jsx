@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { validarUsuario } from "../../supabase/nativeQuerys.js";
-
 import { useUser } from "../../context/UserContext.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -23,10 +22,7 @@ export const LoginForm = ({ cambiarModo }) => {
       return;
     }
   
-    // Cambiar el estado del usuario en el contexto
     login(data);
-  
-    // Navegar a la página de perfil
     navigate("/profile");
   };
 
@@ -42,8 +38,9 @@ export const LoginForm = ({ cambiarModo }) => {
 
       <form onSubmit={handleLogin} className="space-y-4">
         <div>
-          <label className="block mb-1 font-medium">Email</label>
+          <label htmlFor="email" className="block mb-1 font-medium">Email</label>
           <input
+            id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -54,8 +51,9 @@ export const LoginForm = ({ cambiarModo }) => {
         </div>
 
         <div>
-          <label className="block mb-1 font-medium">Contraseña</label>
+          <label htmlFor="contrasena" className="block mb-1 font-medium">Contraseña</label>
           <input
+            id="contrasena"
             type="password"
             value={contrasena}
             onChange={(e) => setContrasena(e.target.value)}
@@ -68,6 +66,7 @@ export const LoginForm = ({ cambiarModo }) => {
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+          disabled={!email || !contrasena}
         >
           Ingresar
         </button>
