@@ -1,6 +1,7 @@
 import { supabase } from "./client.js";
 
 export const validarUsuario = async (email, contrasena) => {
+  
   const { data, error } = await supabase
     .from("usuarios_unificados")
     .select("*")
