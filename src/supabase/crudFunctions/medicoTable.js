@@ -23,7 +23,6 @@ export const getMedicoById = async (id) => {
 
     if (error) throw error;
     return data;
-    
   } catch (error) {
     console.error("Error obteniendo médico por ID:", error);
     return null;
@@ -33,7 +32,10 @@ export const getMedicoById = async (id) => {
 // Función para crear un nuevo médico
 export const createMedico = async (medico) => {
   try {
-    const { data, error } = await supabase.from("medico").insert([medico]);
+    const { data, error } = await supabase
+      .from("medico")
+      .insert([medico])
+      .select();
     if (error) throw error;
     return data;
   } catch (error) {

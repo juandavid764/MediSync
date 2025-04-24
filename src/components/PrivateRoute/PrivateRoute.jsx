@@ -7,10 +7,8 @@ export const PrivateRoute = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Valido el status", status);
-    if (status !== "authenticated") {
-      console.log("No estoy autenticado, redirijo a /");
-      navigate("/");
+         if (status !== "authenticated") {
+             navigate("/");
     }
   }, [status, navigate]);
 
@@ -18,7 +16,5 @@ export const PrivateRoute = ({ children }) => {
     return children;
   }
 
-  console.log("No estoy autenticado, no muestro el children", children);
-
-  return null;
+     return null;
 };

@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-import { createPaciente } from "../../supabase/crudFunctions/pacienteTable.js";
+import React, { useState, useEffect } from "react";
+
+import { createPaciente } from "../supabase/crudFunctions/pacienteTable.js";
+import { getAllCiudades } from "../supabase/crudFunctions/cuidadTable.js";
 
 export const RegistroForm = ({ cambiarModo }) => {
+  // Datos formulario
   const [formData, setFormData] = useState({
     nombre: "",
     direccion: "",
@@ -16,34 +19,90 @@ export const RegistroForm = ({ cambiarModo }) => {
     usuario: "",
   });
 
-  const [mensaje, setMensaje] = useState("");
+  // Estado para el feedback registro
+  const [mensajeRegistro, setMensajeRegistro] = useState("");
+
+  // Estado para mensajes de error
+  const [feedbackTel, setFeedbackTel] = useState(false);
+
+  // variable auxiliares
+  const [cuidades, setCuidades] = useState([]);
+  const tipoDocOptions = [
+    "Cédula de ciudadanía",
+    "Cédula",
+    "Pasaporte",
+    "Cédula de extranjería",
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    //validaciones para el registro de paciente
+    switch (name) {
+      case "telefono":
+        // No permitir más de 10 caracteres
+        if (value.length > 10) return;
+
+        // Si el número es menor a 10 caracteres, mostrar feedback
+        if (value.length < 10) {
+          if (!feedbackTel) setFeedbackTel(true);
+        } else {
+          if (feedbackTel) setFeedbackTel(false);
+        }
+
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+        break;
+
+      default:
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+        break;
+    }
   };
 
   const handleRegistro = async (e) => {
     e.preventDefault();
-    setMensaje("");
+    setMensajeRegistro("");
+
+    if (feedbackTel) {
+      return;
+    }
 
     const { error } = await createPaciente(formData);
 
     if (error) {
-      setMensaje("❌ Error al registrar paciente");
+      setMensajeRegistro("❌ Error al registrar paciente");
     } else {
-      setMensaje("✅ Paciente registrado correctamente");
+      setMensajeRegistro("✅ Paciente registrado correctamente");
       cambiarModo(); // Volver a login
     }
   };
 
+  // Obtiene las cuidades al cargar la página
+  useEffect(() => {
+    getAllCiudades()
+      .then((data) => {
+        setCuidades(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <>
-      <h2 className="text-2xl font-bold text-center mb-4">Registro de Paciente</h2>
+      <h2 className="text-2xl font-bold text-center mb-4">
+        Registro de Paciente
+      </h2>
 
-      {mensaje && (
+      {mensajeRegistro && (
         <div className="text-center text-sm font-medium mb-4 text-blue-600">
-          {mensaje}
+          {mensajeRegistro}
         </div>
       )}
 
@@ -57,6 +116,7 @@ export const RegistroForm = ({ cambiarModo }) => {
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
+            autoComplete="name"
           />
         </div>
         <div>
@@ -68,18 +128,25 @@ export const RegistroForm = ({ cambiarModo }) => {
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
+            autoComplete="street-address"
           />
         </div>
         <div>
           <label className="block mb-1 font-medium">Teléfono</label>
           <input
-            type="text"
+            type="number"
             name="telefono"
             value={formData.telefono}
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
+            autoComplete="tel"
           />
+          {feedbackTel && (
+            <p className="text-red-500 text-xs italic">
+              Debes digitar 10 dígitos
+            </p>
+          )}
         </div>
         <div>
           <label className="block mb-1 font-medium">Fecha de nacimiento</label>
@@ -90,6 +157,8 @@ export const RegistroForm = ({ cambiarModo }) => {
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
+            autoComplete="bday"
+            max={new Date().toISOString().split("T")[0]} // Deshabilita fechas futuras
           />
         </div>
         <div>
@@ -101,6 +170,7 @@ export const RegistroForm = ({ cambiarModo }) => {
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
+            autoComplete="email"
           />
         </div>
         <div>
@@ -112,29 +182,46 @@ export const RegistroForm = ({ cambiarModo }) => {
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
+            autoComplete="current-password"
           />
         </div>
         <div>
           <label className="block mb-1 font-medium">Ciudad</label>
-          <input
-            type="text"
+          <select
             name="cuidad"
             value={formData.cuidad}
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
-          />
+          >
+            <option defaultChecked value="">
+              Selecciona una ciudad
+            </option>
+            {cuidades.map((ciudad) => (
+              <option key={ciudad.id_cuidad} value={ciudad.id_cuidad}>
+                {ciudad.nombre}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="block mb-1 font-medium">Tipo de Documento</label>
-          <input
-            type="text"
+          <select
             name="tipo_doc"
             value={formData.tipo_doc}
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
-          />
+          >
+            <option defaultChecked value="">
+              Selecciona un tipo de documento
+            </option>
+            {tipoDocOptions.map((tipo) => (
+              <option key={tipo} value={tipo}>
+                {tipo}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="block mb-1 font-medium">Número de Documento</label>
@@ -145,6 +232,7 @@ export const RegistroForm = ({ cambiarModo }) => {
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
+            autoComplete="off"
           />
         </div>
         <div>
