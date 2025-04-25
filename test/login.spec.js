@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
 // Como usuario registrado, quiero ingresar a mi cuenta con mi correo electrónico y contraseña, para acceder a mi perfil personal.
 
 test('Login erróneo muestra mensaje de error', async ({ page }) => {
-  await page.goto('http://localhost:5174/authPage');
+  await page.goto('http://localhost:5173/authPage');
 
   // Llena los inputs. No tienen `name`, así que usamos roles o selectores más específicos
   const inputs = await page.locator('input');
@@ -30,7 +30,7 @@ test('Login erróneo muestra mensaje de error', async ({ page }) => {
 
 test('Login exitoso redirige al perfil y muestra mensaje de bienvenida', async ({ page }) => {
   // Navegar a la página de autenticación
-  await page.goto('http://localhost:5174/authPage');
+  await page.goto('http://localhost:5173/authPage');
 
   // Llenar los campos de email y contraseña
   const inputs = await page.locator('input');
@@ -46,4 +46,3 @@ test('Login exitoso redirige al perfil y muestra mensaje de bienvenida', async (
   // Verificar que la URL actual sea la esperada
   await expect(page).toHaveURL(/\/profile$/);
 });
-
