@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import { createPaciente } from "../supabase/crudFunctions/pacienteTable.js";
-import { getAllCiudades } from "../supabase/crudFunctions/cuidadTable.js";
+import { createPaciente } from "../../supabase/crudFunctions/pacienteTable.js";
+import { getAllCiudades } from "../../supabase/crudFunctions/cuidadTable.js";
 
 export const RegistroForm = ({ cambiarModo }) => {
   // Datos formulario
@@ -13,7 +13,7 @@ export const RegistroForm = ({ cambiarModo }) => {
     email: "",
     contrasena: "",
     historial: null, // Opcional
-    cuidad: "",
+    ciudad: "",
     tipo_doc: "",
     num_doc: "",
     usuario: "",
@@ -26,7 +26,7 @@ export const RegistroForm = ({ cambiarModo }) => {
   const [feedbackTel, setFeedbackTel] = useState(false);
 
   // variable auxiliares
-  const [cuidades, setCuidades] = useState([]);
+  const [ciudades, setCiudades] = useState([]);
   const tipoDocOptions = [
     "Cédula de ciudadanía",
     "Cédula",
@@ -87,7 +87,7 @@ export const RegistroForm = ({ cambiarModo }) => {
   useEffect(() => {
     getAllCiudades()
       .then((data) => {
-        setCuidades(data);
+        setCiudades(data);
       })
       .catch((error) => {
         console.error(error);
@@ -108,8 +108,9 @@ export const RegistroForm = ({ cambiarModo }) => {
 
       <form onSubmit={handleRegistro} className="space-y-4">
         <div>
-          <label className="block mb-1 font-medium">Nombre</label>
+          <label htmlFor="nombre" className="block mb-1 font-medium">Nombre</label>
           <input
+            id="nombre"
             type="text"
             name="nombre"
             value={formData.nombre}
@@ -120,8 +121,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Dirección</label>
+          <label htmlFor="direccion" className="block mb-1 font-medium">Dirección</label>
           <input
+            id="direccion"
             type="text"
             name="direccion"
             value={formData.direccion}
@@ -132,8 +134,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Teléfono</label>
+          <label htmlFor="telefono" className="block mb-1 font-medium">Teléfono</label>
           <input
+            id="telefono"
             type="number"
             name="telefono"
             value={formData.telefono}
@@ -149,8 +152,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           )}
         </div>
         <div>
-          <label className="block mb-1 font-medium">Fecha de nacimiento</label>
+          <label htmlFor="fecha_nac" className="block mb-1 font-medium">Fecha de nacimiento</label>
           <input
+            id="fecha_nac"
             type="date"
             name="fecha_nac"
             value={formData.fecha_nac}
@@ -162,8 +166,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Email</label>
+          <label htmlFor="email" className="block mb-1 font-medium">Email</label>
           <input
+            id="email"
             type="email"
             name="email"
             value={formData.email}
@@ -174,8 +179,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Contraseña</label>
+          <label htmlFor="contrasena" className="block mb-1 font-medium">Contraseña</label>
           <input
+            id="contrasena"
             type="password"
             name="contrasena"
             value={formData.contrasena}
@@ -186,10 +192,11 @@ export const RegistroForm = ({ cambiarModo }) => {
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Ciudad</label>
+          <label htmlFor="ciudad" className="block mb-1 font-medium">Ciudad</label>
           <select
-            name="cuidad"
-            value={formData.cuidad}
+            id="ciudad"
+            name="ciudad"
+            value={formData.ciudad}
             onChange={handleChange}
             required
             className="w-full border px-4 py-2 rounded-lg"
@@ -197,7 +204,7 @@ export const RegistroForm = ({ cambiarModo }) => {
             <option defaultChecked value="">
               Selecciona una ciudad
             </option>
-            {cuidades.map((ciudad) => (
+            {ciudades.map((ciudad) => (
               <option key={ciudad.id_cuidad} value={ciudad.id_cuidad}>
                 {ciudad.nombre}
               </option>
@@ -205,8 +212,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           </select>
         </div>
         <div>
-          <label className="block mb-1 font-medium">Tipo de Documento</label>
+          <label htmlFor="tipo_doc" className="block mb-1 font-medium">Tipo de Documento</label>
           <select
+            id="tipo_doc"
             name="tipo_doc"
             value={formData.tipo_doc}
             onChange={handleChange}
@@ -224,8 +232,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           </select>
         </div>
         <div>
-          <label className="block mb-1 font-medium">Número de Documento</label>
+          <label htmlFor="num_doc" className="block mb-1 font-medium">Número de Documento</label>
           <input
+            id="num_doc"
             type="text"
             name="num_doc"
             value={formData.num_doc}
@@ -236,8 +245,9 @@ export const RegistroForm = ({ cambiarModo }) => {
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Usuario</label>
+          <label htmlFor="usuario" className="block mb-1 font-medium">Usuario</label>
           <input
+            id="usuario"
             type="text"
             name="usuario"
             value={formData.usuario}
