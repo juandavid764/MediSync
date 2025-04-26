@@ -74,7 +74,7 @@ export const LoginForm = ({ cambiarModo }) => {
 
       <div className="mt-4 text-center text-sm text-gray-600">
         ¿No tienes cuenta?{" "}
-        <button className="text-blue-600 underline" onClick={cambiarModo}>
+        <button className="text-blue-600 underline" id="registro" onClick={cambiarModo}>
           Regístrate
         </button>
       </div>

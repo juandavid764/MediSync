@@ -4,11 +4,6 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  {
-    env: {
-        jest: true
-    }
-  },
   { ignores: ['dist'] },
   {
     files: ['**/*.{js,jsx}'],
@@ -34,5 +29,10 @@ export default [
         { allowConstantExport: true },
       ],
     },
+  },
+  {
+    env: {
+        jest: true
+    }
   },
 ]
