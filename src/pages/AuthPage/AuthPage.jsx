@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { LoginForm } from "../components/LoginForm/LoginForm";
-import { RegistroForm } from "../components/RegistroForm/RegistroForm";
+import { LoginForm } from "../../components/LoginForm/LoginForm";
+import { RegistroForm } from "../../components/RegistroForm/RegistroForm";
 
 
 export const AuthPage = () => {
