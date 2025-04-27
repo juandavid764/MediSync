@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useUser } from "../context/UserContext.jsx";
+import { useUser } from "../../context/UserContext.jsx";
 
-import { getMedicoById } from "../supabase/crudFunctions/medicoTable.js";
-import { getPacienteById } from "../supabase/crudFunctions/pacienteTable.js";
+import { getMedicoById } from "../../supabase/crudFunctions/medicoTable.js";
+import { getPacienteById } from "../../supabase/crudFunctions/pacienteTable.js";
 
 import { useNavigate } from "react-router-dom";
 

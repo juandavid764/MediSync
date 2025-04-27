@@ -1,9 +1,9 @@
 import "./App.css";
 import "./index.css";
 
-import { HomePage } from "./pages/HomePage";
-import { ProfilePage } from "./pages/ProfilePage.jsx";
-import { AuthPage } from "./pages/AuthPage.jsx";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { ProfilePage } from "./pages/ProfilePage/ProfilePage.jsx";
+import { AuthPage } from "./pages/AuthPage/AuthPage.jsx";
 
 import {
   BrowserRouter as Router,
