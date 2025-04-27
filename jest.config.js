@@ -5,5 +5,7 @@ export default {
       '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js', // El mock para los archivos de imagen y fuentes
       '\\.(css|less|sass|scss)$': 'identity-obj-proxy', // El mock para los archivos de estilos
       '^@/(.*)$': '<rootDir>/src/$1' // [opcional] Alias para los archivos de la carpeta src
-  }
+  },
+  testMatch: ['**/?(*.)+(test).[jt]s?(x)'], // Solo incluye archivos *.test.js, *.test.jsx, etc.
+  testPathIgnorePatterns: ['/node_modules/', '/test/', '/tests-examples/'], // Ignora carpetas específicas
 }
