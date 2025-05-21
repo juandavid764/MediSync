@@ -3,6 +3,7 @@ import { useUser } from "../../context/UserContext.jsx";
 
 import { getMedicoById } from "../../supabase/crudFunctions/medicoTable.js";
 import { getPacienteById } from "../../supabase/crudFunctions/pacienteTable.js";
+import { getAdminById } from "../../supabase/crudFunctions/adminTable.js";
 
 import { useNavigate } from "react-router-dom";
 
@@ -33,6 +34,8 @@ export const ProfilePage = () => {
         data = await getPacienteById(user.id);
       } else if (user.tipo_usuario === "medico") {
         data = await getMedicoById(user.id);
+      } else if (user.tipo_usuario === "admin") {
+        data = await getAdminById(user.id);
       }
 
       setUserData(data);

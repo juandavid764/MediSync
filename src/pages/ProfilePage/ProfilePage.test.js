@@ -21,6 +21,10 @@ jest.mock('../../supabase/crudFunctions/pacienteTable', () => ({
   getPacienteById: jest.fn()
 }));
 
+jest.mock('../../supabase/crudFunctions/adminTable', () => ({
+  getAdminById: jest.fn()
+}));
+
 describe('ProfilePage', () => {
   const mockLogout = jest.fn();
   const mockNavigate = jest.fn();
@@ -33,6 +37,11 @@ describe('ProfilePage', () => {
     id: 2,
     tipo_usuario: 'paciente',
     email: 'paciente@example.com'
+  };
+  const mockUserAdmin = {
+    id: 3,
+    tipo_usuario: 'admin',
+    email: 'admin@example.com'
   };
 
   beforeEach(() => {
@@ -89,6 +98,24 @@ describe('ProfilePage', () => {
 
     expect(screen.getByText('Perfil de Paciente')).toBeInTheDocument();
     expect(screen.getByText('Ana Gómez')).toBeInTheDocument();
+  });
+
+  test('renderiza el perfil de administrador cuando el tipo de usuario es admin', async () => {
+    useUser.mockReturnValue({ user: mockUserAdmin, logout: mockLogout });
+    require('../../supabase/crudFunctions/adminTable').getAdminById.mockResolvedValue({
+      email: 'admin@example.com',
+      sede: 'Sede Central'
+    });
+
+    render(<ProfilePage />);
+    
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(screen.getByText('Perfil de Administrador')).toBeInTheDocument();
+    expect(screen.getByText('admin@example.com')).toBeInTheDocument();
+    expect(screen.getByText('Sede Central')).toBeInTheDocument();
   });
 
   test('maneja el logout correctamente', async () => {
