@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1745709503661" clover="3.2.0">
-  <project timestamp="1745709503661" name="All files">
-    <metrics statements="177" coveredstatements="171" conditionals="60" coveredconditionals="60" methods="32" coveredmethods="28" elements="269" coveredelements="259" complexity="0" loc="177" ncloc="177" packages="5" files="8" classes="8"/>
+<coverage generated="1747927263842" clover="3.2.0">
+  <project timestamp="1747927263842" name="All files">
+    <metrics statements="209" coveredstatements="209" conditionals="90" coveredconditionals="85" methods="40" coveredmethods="40" elements="339" coveredelements="334" complexity="0" loc="209" ncloc="209" packages="8" files="11" classes="11"/>
     <package name="components.LoginForm">
       <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
-      <file name="LoginForm.jsx" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\components\LoginForm\LoginForm.jsx">
+      <file name="LoginForm.jsx" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\components\LoginForm\LoginForm.jsx">
         <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="12" type="stmt"/>
@@ -28,7 +28,7 @@
     </package>
     <package name="components.RegistroForm">
       <metrics statements="34" coveredstatements="34" conditionals="18" coveredconditionals="18" methods="8" coveredmethods="8"/>
-      <file name="RegistroForm.jsx" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\components\RegistroForm\RegistroForm.jsx">
+      <file name="RegistroForm.jsx" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\components\RegistroForm\RegistroForm.jsx">
         <metrics statements="34" coveredstatements="34" conditionals="18" coveredconditionals="18" methods="8" coveredmethods="8"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="64" type="stmt"/>
@@ -67,31 +67,81 @@
       </file>
     </package>
     <package name="context">
-      <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="UserContext.jsx" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\context\UserContext.jsx">
-        <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="UserContext.jsx" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\context\UserContext.jsx">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.AuthPage">
+      <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <file name="AuthPage.jsx" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\pages\AuthPage\AuthPage.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.HomePage">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="HomePage.jsx" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\pages\HomePage\HomePage.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.ProfilePage">
+      <metrics statements="24" coveredstatements="24" conditionals="26" coveredconditionals="21" methods="4" coveredmethods="4"/>
+      <file name="ProfilePage.jsx" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\pages\ProfilePage\ProfilePage.jsx">
+        <metrics statements="24" coveredstatements="24" conditionals="26" coveredconditionals="21" methods="4" coveredmethods="4"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+        <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="32" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
+        <line num="42" count="5" type="stmt"/>
+        <line num="45" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="58" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
       </file>
     </package>
     <package name="supabase">
-      <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
-      <file name="client.js" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\supabase\client.js">
-        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="0" coveredmethods="0"/>
+      <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <file name="client.js" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\supabase\client.js">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="0" coveredmethods="0"/>
         <line num="3" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="4" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="6" count="6" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
       </file>
-      <file name="nativeQuerys.js" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\supabase\nativeQuerys.js">
+      <file name="nativeQuerys.js" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\supabase\nativeQuerys.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
@@ -103,7 +153,7 @@
     </package>
     <package name="supabase.crudFunctions">
       <metrics statements="105" coveredstatements="105" conditionals="30" coveredconditionals="30" methods="15" coveredmethods="15"/>
-      <file name="cuidadTable.js" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\supabase\crudFunctions\cuidadTable.js">
+      <file name="cuidadTable.js" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\supabase\crudFunctions\cuidadTable.js">
         <metrics statements="35" coveredstatements="35" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -141,7 +191,7 @@
         <line num="72" count="1" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
       </file>
-      <file name="medicoTable.js" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\supabase\crudFunctions\medicoTable.js">
+      <file name="medicoTable.js" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\supabase\crudFunctions\medicoTable.js">
         <metrics statements="35" coveredstatements="35" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -179,7 +229,7 @@
         <line num="72" count="1" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
       </file>
-      <file name="pacienteTable.js" path="C:\Users\Juan\Desktop\UAO\6to Semestre\Ing de software 2\MediSync\src\supabase\crudFunctions\pacienteTable.js">
+      <file name="pacienteTable.js" path="C:\Users\valen\Downloads\Ingesoft\MediSync\src\supabase\crudFunctions\pacienteTable.js">
         <metrics statements="35" coveredstatements="35" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
