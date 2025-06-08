@@ -301,7 +301,7 @@ npm run preview
 
 ### 🏫 Contexto Educativo
 - **Universidad**: Universidad Autónoma de Occidente (UAO)
-- **Programa**: Ingeniería de Sistemas
+- **Programa**: Ingeniería informatica
 - **Materia**: Ingeniería de Software 2
 - **Semestre**: 6to Semestre
 - **Año**: 2025
@@ -360,8 +360,8 @@ npm run preview
 5. Crear Pull Request
 
 ### 📧 Contacto
-- **Desarrollador**: [Tu Nombre]
-- **Email**: [tu.email@uao.edu.co]
+- **Desarrollador**: [Juan David Trujillo]
+- **Email**: [juandaviderazo2401@gmail.com]
 - **Universidad**: Universidad Autónoma de Occidente
 
 ## 📄 Licencia
